@@ -30,7 +30,7 @@ Half of the cohort churns in approximately 195 days.
 
 ## Data & Definitions
 
-This analysis uses the `transactions` and `members` datasets from WSDM - KKBox's Churn Prediction Challenge dataset
+This analysis uses the `transactions` and `members` datasets from [WSDM - KKBox's Churn Prediction Challenge dataset](https://www.kaggle.com/competitions/kkbox-churn-prediction-challenge/data)
 
 - Churn definition: A user is considered churned if their subscription expires and they do not renew within 30 days. Users who reach the end of the dataset without a full 30-day window to observe churn are treated as censored.
 
