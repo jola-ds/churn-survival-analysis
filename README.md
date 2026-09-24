@@ -17,10 +17,11 @@ The scope of this analysis is transactions-focused to isolate the impact of bill
 ## Key Findings
 
 1. Median Survival Time
-![Overall Kaplan-Meier Retention and Cumulative Hazard Curves](km_and_hazard_curves.png)
+![Overall Kaplan-Meier Retention and Cumulative Hazard Curves](visuals/km_and_hazard_curves.png)
 Half of the cohort churns in approximately 195 days.
 
-2. Churn Hazard Ratios![Forest plot — Stratified Model hazard ratios](forest_plot_2.png)
+2. Churn Hazard Ratios
+![Forest plot — Stratified Model hazard ratios](visuals/forest_plot_2.png)
 
 - Regardless of a user's billing cycle or payment method, enabling auto-renewal is the single most effective retention mechanism. It reliably cuts a user's baseline churn risk by approximately 63% (HR = 0.37). Furthermore, proportional hazards assumption tests confirmed this protective effect is mathematically constant over time.
 
@@ -36,7 +37,7 @@ This analysis uses the `transactions` and `members` datasets from [WSDM - KKBox'
 
 - Survival time origin: Each user's survival clock starts at their first transaction (first subscription), not their registration date. This measures time as a paying subscriber and excludes time spent on the free tier before converting.
 
-![User Resistration Year](user_registration.png)
+![User Resistration Year](visuals/user_registration.png)
 
 - Left-Truncation: The available transaction logs begin exactly on January 1, 2015. However, millions of KKBox users registered years prior. Including these older users creates left-truncation bias because a 5-year loyal user would not be the same, nor have the same starting point as a new subscriber. To correct this, the primary cohort for the analysis is restricted to users who registered after Jan 1, 2015.
 
@@ -56,23 +57,23 @@ performs Kaplan–Meier estimation, log-rank testing, and Cox proportional hazar
 - Cohort Size: 917,697 users
 
 - Overall Churn Distribution
-![Churn distribution](event_distribution.png)
+![Churn distribution](visuals/event_distribution.png)
 Slightly more than half of the cohort churned at least once during the observation window.
 
 - User Lifespan Distribution
-![Lifespan distribution](user_lifespan.png)
+![Lifespan distribution](visuals/user_lifespan.png)
 Majority of churn events occur within the first 30 days, highlighting the importance of early retention.
 
 - Churn by Subscription Plan Groups
-![Churn by plan](churn_by_plan.png)
+![Churn by plan](visuals/churn_by_plan.png)
 Short-term subscription plans (1–29 days) are very toxic with over 96% churn rates, whereas monthly plans (30+ days) provide significant stability.
 
 - Churn by Top Ten Payment Methods
-![Churn by payment method](churn_by_method.png)
+![Churn by payment method](visuals/churn_by_method.png)
 Users on method 35 are almost guaranteed to churn (97.8%), compared to method 41 which is the most stable.
 
 - Churn by Auto-Renew
-![Churn by autorenewal](churn_by_autorenew.png)
+![Churn by autorenewal](visuals/churn_by_autorenew.png)
 Users with auto-renewal enabled have much lower churn rates than those without.
 
 ## Survival Analysis
